@@ -21,4 +21,9 @@ app.post('/logs', (req, res) => {
     const { nome } = req.body;
   
 }  
+)
+
+if (!nome) {
+    return res.status(400).json({ erro: 'o nome aluno é obrigatório' });
+  }
 
