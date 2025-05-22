@@ -6,6 +6,10 @@ const app = express();
 
 const PORTA = 8000;
 
-function registraLog(id , datahora, aluno) {
-    const
+//função para registrar
+function registrarLog(nome) {
+    const id = uuidv4();
+    const dataHora = new Date().toISOString().replace('T', ' ').slice(0, 19);
+    const mensagem = `${id} - ${dataHora} - ${nome}\n`;
 }
+  
