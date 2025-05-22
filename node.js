@@ -27,3 +27,18 @@ if (!nome) {
     return res.status(400).json({ erro: 'o nome aluno é obrigatório' });
   }
 
+  const resultado = registrarLog(nome);
+  res.status(201).json({ mensagem: 'log registrado com sucesso!', id: resultado.id });
+});
+
+// consultar o log por id
+app.get('/logs/:id', (req, res) => {
+  const { id } = req.params;
+   
+  try{
+    const log =  fs.readFileSync('logs.txt','utf8').split('\n');
+    const linhaEncontrada = logs.find(linha => linha.startsWith(id));
+
+  }
+
+
