@@ -11,7 +11,7 @@ const PORT = 8000;
 app.use(express.json()); 
 
 
-// Função para registrar log
+// registrar log
 function registrarLog(nome) {
   const id = uuidv4();
   const dataHora = new Date().toISOString().replace('T', ' ').slice(0, 19);
@@ -23,7 +23,7 @@ function registrarLog(nome) {
 }
 
 
-// Rota POST para adicionar log
+//adicionar log
 app.post('/logs', (req, res) => {
   const { nome } = req.body;
 
@@ -38,7 +38,7 @@ app.post('/logs', (req, res) => {
 });
 
 
-// Rota GET para consultar log por ID
+// consultar log por ID
 app.get('/logs/:id', (req, res) => {
   const { id } = req.params;
 
