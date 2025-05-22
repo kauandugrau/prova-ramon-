@@ -17,6 +17,8 @@ function registrarLog(nome) {
   const dataHora = new Date().toISOString().replace('T', ' ').slice(0, 19);
   const mensagem = `${id} - ${dataHora} - ${nome}\n`;
 
+  console.log("registrando log", mensagem);
+
 
   fs.appendFileSync('logs.txt', mensagem);
   return { id, mensagem };
