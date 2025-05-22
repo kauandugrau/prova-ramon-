@@ -29,7 +29,7 @@ if (!nome) {
 
   const resultado = registrarLog(nome);
   res.status(201).json({ mensagem: 'log registrado com sucesso!', id: resultado.id });
-});
+
 
 // consultar o log por id
 app.get('/logs/:id', (req, res) => {
@@ -38,7 +38,17 @@ app.get('/logs/:id', (req, res) => {
   try{
     const log =  fs.readFileSync('logs.txt','utf8').split('\n');
     const linhaEncontrada = logs.find(linha => linha.startsWith(id));
+    if (linhaEncontrada) {
+        res.status(200).json({ log: linhaEncontrada });
+      } else {
+        res.status(404).json({ erro: 'log não encontrado' });
+      }
+    } catch (erro) {
+        res.status(500).json({ erro: 'erro ao ler o arquivo de logs.' });
+      }
+    });
+    
 
-  }
+  
 
 
